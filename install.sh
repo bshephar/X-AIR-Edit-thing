@@ -3,7 +3,7 @@
 # This script will start by moving the X-AIR-Edit binary into a more central location
 # Then we will configure a systemd service that will start the application on boot
 #
-
+set -x
 # Move the binary into a better location
 sudo cp ~/Downloads/X-AIR-Edit /usr/local/bin/
 
