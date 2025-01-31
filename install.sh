@@ -15,12 +15,13 @@ mkdir -p $HOME/.local/share/systemd/user/
 cat <<EOF >$HOME/.local/share/systemd/user/X-AIR-Edit.service
 [Unit]
 Description=Run the X-AIR-Edit application
-StartLimitIntervalSec=30
-StartLimitBurst=2
+StartLimitIntervalSec=400
+StartLimitBurst=5
 
 [Service]
 ExecStart=/usr/local/bin/X-AIR-Edit
 Restart=on-failure
+RestartSec=90
 
 [Install]
 WantedBy=default.target
