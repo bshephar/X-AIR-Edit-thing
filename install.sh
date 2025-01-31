@@ -27,5 +27,14 @@ RestartSec=90
 WantedBy=default.target
 EOF
 
+mkdir $HOME/.config/autostart/
+touch $HOME/.config/autostart/X-AIR-Edit.desktop
+cat <<EOF >"$HOME/.config/autostart/X-AIR-Edit.desktop"
+[Desktop Entry]
+Type=Application
+Name=X-AIR-Edit
+Exec=/usr/local/bin/X-AIR-Edit
+EOF
+
 sudo systemctl daemon-reload
 systemctl --user enable --now X-AIR-Edit
