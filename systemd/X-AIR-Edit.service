@@ -1,0 +1,11 @@
+[Unit]
+Description=Run the X-AIR-Edit application
+StartLimitIntervalSec=30
+StartLimitBurst=2
+
+[Service]
+ExecStart=/usr/local/bin/X-AIR-Edit
+Restart=on-failure
+
+[Install]
+WantedBy=default.target
