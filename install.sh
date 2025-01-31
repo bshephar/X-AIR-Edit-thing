@@ -11,22 +11,25 @@ sudo cp ~/Downloads/X-AIR-Edit /usr/local/bin/
 sudo chmod +x /usr/local/bin/X-AIR-Edit
 
 # Setup the systemd service to execute the program on user login
-mkdir -p $HOME/.local/share/systemd/user/
-cat <<EOF >$HOME/.local/share/systemd/user/X-AIR-Edit.service
-[Unit]
-Description=Run the X-AIR-Edit application
-StartLimitIntervalSec=400
-StartLimitBurst=5
+#mkdir -p $HOME/.local/share/systemd/user/
+#cat <<EOF >$HOME/.local/share/systemd/user/X-AIR-Edit.service
+#[Unit]
+#Description=Run the X-AIR-Edit application
+#StartLimitIntervalSec=400
+#StartLimitBurst=5
+#
+#[Service]
+#ExecStart=/usr/local/bin/X-AIR-Edit
+#Restart=on-failure
+#RestartSec=90
+#
+#[Install]
+#WantedBy=default.target
+#EOF
 
-[Service]
-ExecStart=/usr/local/bin/X-AIR-Edit
-Restart=on-failure
-RestartSec=90
-
-[Install]
-WantedBy=default.target
-EOF
-
+# Setup the application to autostart when the user logs in. This is seemingly more
+# reliable than the systemd service. Maybe we can improve that, but for now, this
+# seems to be working fine.
 mkdir $HOME/.config/autostart/
 touch $HOME/.config/autostart/X-AIR-Edit.desktop
 cat <<EOF >"$HOME/.config/autostart/X-AIR-Edit.desktop"
